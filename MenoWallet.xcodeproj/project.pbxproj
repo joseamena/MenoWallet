@@ -1,0 +1,920 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F304F8232CAE51780003E815 /* ProfileFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304F8222CAE51780003E815 /* ProfileFeature.swift */; };
+		F304F8252CAE54080003E815 /* MnemonicPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304F8242CAE54080003E815 /* MnemonicPhraseView.swift */; };
+		F304F8272CAEF8A50003E815 /* Data+PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304F8262CAEF8A50003E815 /* Data+PrivateKey.swift */; };
+		F304F82A2CB0E2410003E815 /* XYPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304F8292CB0E2410003E815 /* XYPlot.swift */; };
+		F32D9F602C80F8FD00CD5962 /* MenoWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9F5F2C80F8FD00CD5962 /* MenoWalletApp.swift */; };
+		F32D9F622C80F8FD00CD5962 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9F612C80F8FD00CD5962 /* ContentView.swift */; };
+		F32D9F642C80F90100CD5962 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32D9F632C80F90100CD5962 /* Assets.xcassets */; };
+		F32D9F672C80F90100CD5962 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32D9F662C80F90100CD5962 /* Preview Assets.xcassets */; };
+		F32D9F712C80F90100CD5962 /* MenoWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9F702C80F90100CD5962 /* MenoWalletTests.swift */; };
+		F32D9F7B2C80F90100CD5962 /* MenoWalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9F7A2C80F90100CD5962 /* MenoWalletUITests.swift */; };
+		F32D9F7D2C80F90100CD5962 /* MenoWalletUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9F7C2C80F90100CD5962 /* MenoWalletUITestsLaunchTests.swift */; };
+		F32D9F8B2C80F94900CD5962 /* BTCBlockchainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9F8A2C80F94900CD5962 /* BTCBlockchainInfo.swift */; };
+		F32D9F912C81089E00CD5962 /* NetworkTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9F902C81089E00CD5962 /* NetworkTarget.swift */; };
+		F32D9F932C810BD700CD5962 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9F922C810BD700CD5962 /* NetworkClient.swift */; };
+		F32D9F952C810C1E00CD5962 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9F942C810C1E00CD5962 /* Cache.swift */; };
+		F32D9F972C8111C800CD5962 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9F962C8111C800CD5962 /* AppError.swift */; };
+		F32D9F992C81129A00CD5962 /* Foundation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9F982C81129A00CD5962 /* Foundation+Extensions.swift */; };
+		F32D9F9B2C8113E600CD5962 /* BitcoinTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9F9A2C8113E600CD5962 /* BitcoinTarget.swift */; };
+		F32D9F9D2C81170900CD5962 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9F9C2C81170900CD5962 /* Environment.swift */; };
+		F32D9F9F2C811EC100CD5962 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9F9E2C811EC100CD5962 /* Configuration.swift */; };
+		F33B57082C94D7960076C43C /* AssetDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B57072C94D7960076C43C /* AssetDetails.swift */; };
+		F33B570A2C94DC8D0076C43C /* KeychainClientAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B57092C94DC8D0076C43C /* KeychainClientAPI.swift */; };
+		F33B570D2C94DF560076C43C /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B570B2C94DF560076C43C /* KeychainWrapper.swift */; };
+		F33B570E2C94DF560076C43C /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B570C2C94DF560076C43C /* KeychainItemAccessibility.swift */; };
+		F33B57102C94E5450076C43C /* WelcomeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B570F2C94E5450076C43C /* WelcomeFeature.swift */; };
+		F33B57132C94EDF00076C43C /* CreateWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B57122C94EDF00076C43C /* CreateWallet.swift */; };
+		F33B57152C94F3C30076C43C /* ImportWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B57142C94F3C30076C43C /* ImportWallet.swift */; };
+		F33B57172C95509C0076C43C /* WalletAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B57162C95509C0076C43C /* WalletAPI.swift */; };
+		F33B57192C97780E0076C43C /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B57182C97780E0076C43C /* TextInput.swift */; };
+		F33B571B2C98E6FB0076C43C /* SendReceiveCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B571A2C98E6FB0076C43C /* SendReceiveCrypto.swift */; };
+		F33B571D2C98F9CD0076C43C /* SendCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B571C2C98F9CD0076C43C /* SendCrypto.swift */; };
+		F33B571F2C98F9EC0076C43C /* ReceiveCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B571E2C98F9EC0076C43C /* ReceiveCrypto.swift */; };
+		F33B572E2C990B530076C43C /* BitcoinSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F33B572D2C990B530076C43C /* BitcoinSwift */; };
+		F33B57312C9928E90076C43C /* BTCBalanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B57302C9928E90076C43C /* BTCBalanceRequest.swift */; };
+		F33B57332C992FC60076C43C /* BitcoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B57322C992FC60076C43C /* BitcoinService.swift */; };
+		F33B57362C99EF9C0076C43C /* CoinWatchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B57352C99EF9C0076C43C /* CoinWatchTarget.swift */; };
+		F33B57382C99F35B0076C43C /* CoinsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B57372C99F35B0076C43C /* CoinsService.swift */; };
+		F33B573A2C99F4C10076C43C /* CoinWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B57392C99F4C10076C43C /* CoinWatch.swift */; };
+		F37036622C8FFFF900CC4A76 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = F37036612C8FFFF900CC4A76 /* SwiftProtobuf */; };
+		F37036642C8FFFF900CC4A76 /* WalletCore in Frameworks */ = {isa = PBXBuildFile; productRef = F37036632C8FFFF900CC4A76 /* WalletCore */; };
+		F37036662C90003C00CC4A76 /* BitcoinWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37036652C90003C00CC4A76 /* BitcoinWallet.swift */; };
+		F37036682C9000B900CC4A76 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37036672C9000B900CC4A76 /* Wallet.swift */; };
+		F370366F2C93EA1900CC4A76 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F370366E2C93EA1900CC4A76 /* Home.swift */; };
+		F37036722C93EBC800CC4A76 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = F37036712C93EBC800CC4A76 /* ComposableArchitecture */; };
+		F37036772C93F00F00CC4A76 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37036762C93F00F00CC4A76 /* Typography.swift */; };
+		F370367B2C93F3CD00CC4A76 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F370367A2C93F3CD00CC4A76 /* PrimaryButton.swift */; };
+		F370367D2C9403D300CC4A76 /* AssetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F370367C2C9403D300CC4A76 /* AssetRow.swift */; };
+		F370367F2C94AB9600CC4A76 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F370367E2C94AB9600CC4A76 /* Dimensions.swift */; };
+		F37036812C94AED800CC4A76 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37036802C94AED700CC4A76 /* Theme.swift */; };
+		F37036842C94CCA700CC4A76 /* AssetsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37036832C94CCA700CC4A76 /* AssetsAPI.swift */; };
+		F37036862C94CD2F00CC4A76 /* CryptoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37036852C94CD2F00CC4A76 /* CryptoAsset.swift */; };
+		F3897B3B2C9FB723009A6AB5 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3897B3A2C9FB723009A6AB5 /* ViewModifiers.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F32D9F6D2C80F90100CD5962 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F32D9F542C80F8FD00CD5962 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F32D9F5B2C80F8FD00CD5962;
+			remoteInfo = MenoWallet;
+		};
+		F32D9F772C80F90100CD5962 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F32D9F542C80F8FD00CD5962 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F32D9F5B2C80F8FD00CD5962;
+			remoteInfo = MenoWallet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F304F8222CAE51780003E815 /* ProfileFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFeature.swift; sourceTree = "<group>"; };
+		F304F8242CAE54080003E815 /* MnemonicPhraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicPhraseView.swift; sourceTree = "<group>"; };
+		F304F8262CAEF8A50003E815 /* Data+PrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+PrivateKey.swift"; sourceTree = "<group>"; };
+		F304F8292CB0E2410003E815 /* XYPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYPlot.swift; sourceTree = "<group>"; };
+		F32D9F5C2C80F8FD00CD5962 /* MenoWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenoWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F32D9F5F2C80F8FD00CD5962 /* MenoWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenoWalletApp.swift; sourceTree = "<group>"; };
+		F32D9F612C80F8FD00CD5962 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F32D9F632C80F90100CD5962 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F32D9F662C80F90100CD5962 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F32D9F6C2C80F90100CD5962 /* MenoWalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenoWalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F32D9F702C80F90100CD5962 /* MenoWalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenoWalletTests.swift; sourceTree = "<group>"; };
+		F32D9F762C80F90100CD5962 /* MenoWalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenoWalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F32D9F7A2C80F90100CD5962 /* MenoWalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenoWalletUITests.swift; sourceTree = "<group>"; };
+		F32D9F7C2C80F90100CD5962 /* MenoWalletUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenoWalletUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F32D9F8A2C80F94900CD5962 /* BTCBlockchainInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTCBlockchainInfo.swift; sourceTree = "<group>"; };
+		F32D9F8F2C8107E300CD5962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F32D9F902C81089E00CD5962 /* NetworkTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTarget.swift; sourceTree = "<group>"; };
+		F32D9F922C810BD700CD5962 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		F32D9F942C810C1E00CD5962 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		F32D9F962C8111C800CD5962 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		F32D9F982C81129A00CD5962 /* Foundation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extensions.swift"; sourceTree = "<group>"; };
+		F32D9F9A2C8113E600CD5962 /* BitcoinTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinTarget.swift; sourceTree = "<group>"; };
+		F32D9F9C2C81170900CD5962 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		F32D9F9E2C811EC100CD5962 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		F33B57072C94D7960076C43C /* AssetDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetails.swift; sourceTree = "<group>"; };
+		F33B57092C94DC8D0076C43C /* KeychainClientAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainClientAPI.swift; sourceTree = "<group>"; };
+		F33B570B2C94DF560076C43C /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		F33B570C2C94DF560076C43C /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		F33B570F2C94E5450076C43C /* WelcomeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFeature.swift; sourceTree = "<group>"; };
+		F33B57122C94EDF00076C43C /* CreateWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWallet.swift; sourceTree = "<group>"; };
+		F33B57142C94F3C30076C43C /* ImportWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWallet.swift; sourceTree = "<group>"; };
+		F33B57162C95509C0076C43C /* WalletAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAPI.swift; sourceTree = "<group>"; };
+		F33B57182C97780E0076C43C /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
+		F33B571A2C98E6FB0076C43C /* SendReceiveCrypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendReceiveCrypto.swift; sourceTree = "<group>"; };
+		F33B571C2C98F9CD0076C43C /* SendCrypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCrypto.swift; sourceTree = "<group>"; };
+		F33B571E2C98F9EC0076C43C /* ReceiveCrypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveCrypto.swift; sourceTree = "<group>"; };
+		F33B57302C9928E90076C43C /* BTCBalanceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTCBalanceRequest.swift; sourceTree = "<group>"; };
+		F33B57322C992FC60076C43C /* BitcoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinService.swift; sourceTree = "<group>"; };
+		F33B57352C99EF9C0076C43C /* CoinWatchTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinWatchTarget.swift; sourceTree = "<group>"; };
+		F33B57372C99F35B0076C43C /* CoinsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsService.swift; sourceTree = "<group>"; };
+		F33B57392C99F4C10076C43C /* CoinWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinWatch.swift; sourceTree = "<group>"; };
+		F37036652C90003C00CC4A76 /* BitcoinWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinWallet.swift; sourceTree = "<group>"; };
+		F37036672C9000B900CC4A76 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		F370366E2C93EA1900CC4A76 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		F37036762C93F00F00CC4A76 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		F370367A2C93F3CD00CC4A76 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		F370367C2C9403D300CC4A76 /* AssetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetRow.swift; sourceTree = "<group>"; };
+		F370367E2C94AB9600CC4A76 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
+		F37036802C94AED700CC4A76 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		F37036832C94CCA700CC4A76 /* AssetsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsAPI.swift; sourceTree = "<group>"; };
+		F37036852C94CD2F00CC4A76 /* CryptoAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAsset.swift; sourceTree = "<group>"; };
+		F3897B3A2C9FB723009A6AB5 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F32D9F592C80F8FD00CD5962 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F37036642C8FFFF900CC4A76 /* WalletCore in Frameworks */,
+				F33B572E2C990B530076C43C /* BitcoinSwift in Frameworks */,
+				F37036622C8FFFF900CC4A76 /* SwiftProtobuf in Frameworks */,
+				F37036722C93EBC800CC4A76 /* ComposableArchitecture in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F32D9F692C80F90100CD5962 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F32D9F732C80F90100CD5962 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F304F8212CAE51630003E815 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F304F8222CAE51780003E815 /* ProfileFeature.swift */,
+				F304F8242CAE54080003E815 /* MnemonicPhraseView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F304F8282CB0E1EE0003E815 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				F33B570F2C94E5450076C43C /* WelcomeFeature.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		F32D9F532C80F8FD00CD5962 = {
+			isa = PBXGroup;
+			children = (
+				F32D9F5E2C80F8FD00CD5962 /* MenoWallet */,
+				F32D9F6F2C80F90100CD5962 /* MenoWalletTests */,
+				F32D9F792C80F90100CD5962 /* MenoWalletUITests */,
+				F32D9F5D2C80F8FD00CD5962 /* Products */,
+				F37036702C93EBC800CC4A76 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F32D9F5D2C80F8FD00CD5962 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F32D9F5C2C80F8FD00CD5962 /* MenoWallet.app */,
+				F32D9F6C2C80F90100CD5962 /* MenoWalletTests.xctest */,
+				F32D9F762C80F90100CD5962 /* MenoWalletUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F32D9F5E2C80F8FD00CD5962 /* MenoWallet */ = {
+			isa = PBXGroup;
+			children = (
+				F33B570C2C94DF560076C43C /* KeychainItemAccessibility.swift */,
+				F33B570B2C94DF560076C43C /* KeychainWrapper.swift */,
+				F37036852C94CD2F00CC4A76 /* CryptoAsset.swift */,
+				F37036822C94CB9600CC4A76 /* Services */,
+				F37036752C93EFE600CC4A76 /* ViewComponents */,
+				F32D9F8F2C8107E300CD5962 /* Info.plist */,
+				F32D9F9C2C81170900CD5962 /* Environment.swift */,
+				F32D9F9E2C811EC100CD5962 /* Configuration.swift */,
+				F32D9F8C2C81014300CD5962 /* Networking */,
+				F32D9F5F2C80F8FD00CD5962 /* MenoWalletApp.swift */,
+				F32D9F612C80F8FD00CD5962 /* ContentView.swift */,
+				F304F8282CB0E1EE0003E815 /* Welcome */,
+				F304F8212CAE51630003E815 /* Profile */,
+				F370366D2C93E96B00CC4A76 /* Home */,
+				F33B57112C94EDBD0076C43C /* Wallet */,
+				F3897B392C9FB65E009A6AB5 /* Extensions */,
+				F37036652C90003C00CC4A76 /* BitcoinWallet.swift */,
+				F37036672C9000B900CC4A76 /* Wallet.swift */,
+				F32D9F632C80F90100CD5962 /* Assets.xcassets */,
+				F32D9F652C80F90100CD5962 /* Preview Content */,
+				F32D9F962C8111C800CD5962 /* AppError.swift */,
+			);
+			path = MenoWallet;
+			sourceTree = "<group>";
+		};
+		F32D9F652C80F90100CD5962 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F32D9F662C80F90100CD5962 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F32D9F6F2C80F90100CD5962 /* MenoWalletTests */ = {
+			isa = PBXGroup;
+			children = (
+				F32D9F702C80F90100CD5962 /* MenoWalletTests.swift */,
+			);
+			path = MenoWalletTests;
+			sourceTree = "<group>";
+		};
+		F32D9F792C80F90100CD5962 /* MenoWalletUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F32D9F7A2C80F90100CD5962 /* MenoWalletUITests.swift */,
+				F32D9F7C2C80F90100CD5962 /* MenoWalletUITestsLaunchTests.swift */,
+			);
+			path = MenoWalletUITests;
+			sourceTree = "<group>";
+		};
+		F32D9F8C2C81014300CD5962 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F33B572F2C9928BF0076C43C /* Models */,
+				F33B57342C99EF6A0076C43C /* Targets */,
+				F32D9F902C81089E00CD5962 /* NetworkTarget.swift */,
+				F32D9F922C810BD700CD5962 /* NetworkClient.swift */,
+				F32D9F942C810C1E00CD5962 /* Cache.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F33B57112C94EDBD0076C43C /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				F33B57122C94EDF00076C43C /* CreateWallet.swift */,
+				F33B57142C94F3C30076C43C /* ImportWallet.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		F33B572F2C9928BF0076C43C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F32D9F8A2C80F94900CD5962 /* BTCBlockchainInfo.swift */,
+				F33B57302C9928E90076C43C /* BTCBalanceRequest.swift */,
+				F33B57392C99F4C10076C43C /* CoinWatch.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F33B57342C99EF6A0076C43C /* Targets */ = {
+			isa = PBXGroup;
+			children = (
+				F32D9F9A2C8113E600CD5962 /* BitcoinTarget.swift */,
+				F33B57352C99EF9C0076C43C /* CoinWatchTarget.swift */,
+			);
+			path = Targets;
+			sourceTree = "<group>";
+		};
+		F370366D2C93E96B00CC4A76 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F370366E2C93EA1900CC4A76 /* Home.swift */,
+				F33B571A2C98E6FB0076C43C /* SendReceiveCrypto.swift */,
+				F370367C2C9403D300CC4A76 /* AssetRow.swift */,
+				F33B57072C94D7960076C43C /* AssetDetails.swift */,
+				F33B571C2C98F9CD0076C43C /* SendCrypto.swift */,
+				F33B571E2C98F9EC0076C43C /* ReceiveCrypto.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F37036702C93EBC800CC4A76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F37036752C93EFE600CC4A76 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				F37036762C93F00F00CC4A76 /* Typography.swift */,
+				F370367A2C93F3CD00CC4A76 /* PrimaryButton.swift */,
+				F370367E2C94AB9600CC4A76 /* Dimensions.swift */,
+				F37036802C94AED700CC4A76 /* Theme.swift */,
+				F33B57182C97780E0076C43C /* TextInput.swift */,
+				F3897B3A2C9FB723009A6AB5 /* ViewModifiers.swift */,
+				F304F8292CB0E2410003E815 /* XYPlot.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		F37036822C94CB9600CC4A76 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F37036832C94CCA700CC4A76 /* AssetsAPI.swift */,
+				F33B57092C94DC8D0076C43C /* KeychainClientAPI.swift */,
+				F33B57162C95509C0076C43C /* WalletAPI.swift */,
+				F33B57322C992FC60076C43C /* BitcoinService.swift */,
+				F33B57372C99F35B0076C43C /* CoinsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F3897B392C9FB65E009A6AB5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F32D9F982C81129A00CD5962 /* Foundation+Extensions.swift */,
+				F304F8262CAEF8A50003E815 /* Data+PrivateKey.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F32D9F5B2C80F8FD00CD5962 /* MenoWallet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F32D9F802C80F90100CD5962 /* Build configuration list for PBXNativeTarget "MenoWallet" */;
+			buildPhases = (
+				F32D9F582C80F8FD00CD5962 /* Sources */,
+				F32D9F592C80F8FD00CD5962 /* Frameworks */,
+				F32D9F5A2C80F8FD00CD5962 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MenoWallet;
+			packageProductDependencies = (
+				F37036612C8FFFF900CC4A76 /* SwiftProtobuf */,
+				F37036632C8FFFF900CC4A76 /* WalletCore */,
+				F37036712C93EBC800CC4A76 /* ComposableArchitecture */,
+				F33B572D2C990B530076C43C /* BitcoinSwift */,
+			);
+			productName = MenoWallet;
+			productReference = F32D9F5C2C80F8FD00CD5962 /* MenoWallet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F32D9F6B2C80F90100CD5962 /* MenoWalletTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F32D9F832C80F90100CD5962 /* Build configuration list for PBXNativeTarget "MenoWalletTests" */;
+			buildPhases = (
+				F32D9F682C80F90100CD5962 /* Sources */,
+				F32D9F692C80F90100CD5962 /* Frameworks */,
+				F32D9F6A2C80F90100CD5962 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F32D9F6E2C80F90100CD5962 /* PBXTargetDependency */,
+			);
+			name = MenoWalletTests;
+			productName = MenoWalletTests;
+			productReference = F32D9F6C2C80F90100CD5962 /* MenoWalletTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F32D9F752C80F90100CD5962 /* MenoWalletUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F32D9F862C80F90100CD5962 /* Build configuration list for PBXNativeTarget "MenoWalletUITests" */;
+			buildPhases = (
+				F32D9F722C80F90100CD5962 /* Sources */,
+				F32D9F732C80F90100CD5962 /* Frameworks */,
+				F32D9F742C80F90100CD5962 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F32D9F782C80F90100CD5962 /* PBXTargetDependency */,
+			);
+			name = MenoWalletUITests;
+			productName = MenoWalletUITests;
+			productReference = F32D9F762C80F90100CD5962 /* MenoWalletUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F32D9F542C80F8FD00CD5962 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					F32D9F5B2C80F8FD00CD5962 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					F32D9F6B2C80F90100CD5962 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = F32D9F5B2C80F8FD00CD5962;
+					};
+					F32D9F752C80F90100CD5962 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = F32D9F5B2C80F8FD00CD5962;
+					};
+				};
+			};
+			buildConfigurationList = F32D9F572C80F8FD00CD5962 /* Build configuration list for PBXProject "MenoWallet" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F32D9F532C80F8FD00CD5962;
+			packageReferences = (
+				F37036602C8FFFF900CC4A76 /* XCRemoteSwiftPackageReference "wallet-core" */,
+				F370366A2C93E8A900CC4A76 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				F33B572C2C990B530076C43C /* XCRemoteSwiftPackageReference "bitcoin-ecc" */,
+			);
+			productRefGroup = F32D9F5D2C80F8FD00CD5962 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F32D9F5B2C80F8FD00CD5962 /* MenoWallet */,
+				F32D9F6B2C80F90100CD5962 /* MenoWalletTests */,
+				F32D9F752C80F90100CD5962 /* MenoWalletUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F32D9F5A2C80F8FD00CD5962 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F32D9F672C80F90100CD5962 /* Preview Assets.xcassets in Resources */,
+				F32D9F642C80F90100CD5962 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F32D9F6A2C80F90100CD5962 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F32D9F742C80F90100CD5962 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F32D9F582C80F8FD00CD5962 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F33B571B2C98E6FB0076C43C /* SendReceiveCrypto.swift in Sources */,
+				F32D9F952C810C1E00CD5962 /* Cache.swift in Sources */,
+				F33B57312C9928E90076C43C /* BTCBalanceRequest.swift in Sources */,
+				F37036862C94CD2F00CC4A76 /* CryptoAsset.swift in Sources */,
+				F32D9F9B2C8113E600CD5962 /* BitcoinTarget.swift in Sources */,
+				F37036772C93F00F00CC4A76 /* Typography.swift in Sources */,
+				F33B57332C992FC60076C43C /* BitcoinService.swift in Sources */,
+				F304F8252CAE54080003E815 /* MnemonicPhraseView.swift in Sources */,
+				F33B570D2C94DF560076C43C /* KeychainWrapper.swift in Sources */,
+				F33B57082C94D7960076C43C /* AssetDetails.swift in Sources */,
+				F32D9F622C80F8FD00CD5962 /* ContentView.swift in Sources */,
+				F32D9F602C80F8FD00CD5962 /* MenoWalletApp.swift in Sources */,
+				F32D9F972C8111C800CD5962 /* AppError.swift in Sources */,
+				F370367D2C9403D300CC4A76 /* AssetRow.swift in Sources */,
+				F370367B2C93F3CD00CC4A76 /* PrimaryButton.swift in Sources */,
+				F304F8272CAEF8A50003E815 /* Data+PrivateKey.swift in Sources */,
+				F33B57382C99F35B0076C43C /* CoinsService.swift in Sources */,
+				F32D9F9F2C811EC100CD5962 /* Configuration.swift in Sources */,
+				F33B57362C99EF9C0076C43C /* CoinWatchTarget.swift in Sources */,
+				F370366F2C93EA1900CC4A76 /* Home.swift in Sources */,
+				F37036842C94CCA700CC4A76 /* AssetsAPI.swift in Sources */,
+				F37036662C90003C00CC4A76 /* BitcoinWallet.swift in Sources */,
+				F304F8232CAE51780003E815 /* ProfileFeature.swift in Sources */,
+				F33B571D2C98F9CD0076C43C /* SendCrypto.swift in Sources */,
+				F33B57152C94F3C30076C43C /* ImportWallet.swift in Sources */,
+				F33B570A2C94DC8D0076C43C /* KeychainClientAPI.swift in Sources */,
+				F33B57192C97780E0076C43C /* TextInput.swift in Sources */,
+				F37036682C9000B900CC4A76 /* Wallet.swift in Sources */,
+				F33B571F2C98F9EC0076C43C /* ReceiveCrypto.swift in Sources */,
+				F370367F2C94AB9600CC4A76 /* Dimensions.swift in Sources */,
+				F32D9F8B2C80F94900CD5962 /* BTCBlockchainInfo.swift in Sources */,
+				F32D9F9D2C81170900CD5962 /* Environment.swift in Sources */,
+				F33B57102C94E5450076C43C /* WelcomeFeature.swift in Sources */,
+				F32D9F912C81089E00CD5962 /* NetworkTarget.swift in Sources */,
+				F37036812C94AED800CC4A76 /* Theme.swift in Sources */,
+				F33B573A2C99F4C10076C43C /* CoinWatch.swift in Sources */,
+				F33B57172C95509C0076C43C /* WalletAPI.swift in Sources */,
+				F304F82A2CB0E2410003E815 /* XYPlot.swift in Sources */,
+				F33B570E2C94DF560076C43C /* KeychainItemAccessibility.swift in Sources */,
+				F32D9F932C810BD700CD5962 /* NetworkClient.swift in Sources */,
+				F3897B3B2C9FB723009A6AB5 /* ViewModifiers.swift in Sources */,
+				F33B57132C94EDF00076C43C /* CreateWallet.swift in Sources */,
+				F32D9F992C81129A00CD5962 /* Foundation+Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F32D9F682C80F90100CD5962 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F32D9F712C80F90100CD5962 /* MenoWalletTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F32D9F722C80F90100CD5962 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F32D9F7D2C80F90100CD5962 /* MenoWalletUITestsLaunchTests.swift in Sources */,
+				F32D9F7B2C80F90100CD5962 /* MenoWalletUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F32D9F6E2C80F90100CD5962 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F32D9F5B2C80F8FD00CD5962 /* MenoWallet */;
+			targetProxy = F32D9F6D2C80F90100CD5962 /* PBXContainerItemProxy */;
+		};
+		F32D9F782C80F90100CD5962 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F32D9F5B2C80F8FD00CD5962 /* MenoWallet */;
+			targetProxy = F32D9F772C80F90100CD5962 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F32D9F7E2C80F90100CD5962 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F32D9F7F2C80F90100CD5962 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F32D9F812C80F90100CD5962 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MenoWallet/Preview Content\"";
+				DEVELOPMENT_TEAM = A499PXUJ8D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MenoWallet/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jose.antonio.mena.MenoWallet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F32D9F822C80F90100CD5962 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MenoWallet/Preview Content\"";
+				DEVELOPMENT_TEAM = A499PXUJ8D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MenoWallet/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jose.antonio.mena.MenoWallet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F32D9F842C80F90100CD5962 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A499PXUJ8D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jose.antonio.mena.MenoWalletTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MenoWallet.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MenoWallet";
+			};
+			name = Debug;
+		};
+		F32D9F852C80F90100CD5962 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A499PXUJ8D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jose.antonio.mena.MenoWalletTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MenoWallet.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MenoWallet";
+			};
+			name = Release;
+		};
+		F32D9F872C80F90100CD5962 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A499PXUJ8D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jose.antonio.mena.MenoWalletUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MenoWallet;
+			};
+			name = Debug;
+		};
+		F32D9F882C80F90100CD5962 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A499PXUJ8D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jose.antonio.mena.MenoWalletUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MenoWallet;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F32D9F572C80F8FD00CD5962 /* Build configuration list for PBXProject "MenoWallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F32D9F7E2C80F90100CD5962 /* Debug */,
+				F32D9F7F2C80F90100CD5962 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F32D9F802C80F90100CD5962 /* Build configuration list for PBXNativeTarget "MenoWallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F32D9F812C80F90100CD5962 /* Debug */,
+				F32D9F822C80F90100CD5962 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F32D9F832C80F90100CD5962 /* Build configuration list for PBXNativeTarget "MenoWalletTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F32D9F842C80F90100CD5962 /* Debug */,
+				F32D9F852C80F90100CD5962 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F32D9F862C80F90100CD5962 /* Build configuration list for PBXNativeTarget "MenoWalletUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F32D9F872C80F90100CD5962 /* Debug */,
+				F32D9F882C80F90100CD5962 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F33B572C2C990B530076C43C /* XCRemoteSwiftPackageReference "bitcoin-ecc" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/joseamena/bitcoin-ecc";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		F37036602C8FFFF900CC4A76 /* XCRemoteSwiftPackageReference "wallet-core" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/trustwallet/wallet-core";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.6;
+			};
+		};
+		F370366A2C93E8A900CC4A76 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F33B572D2C990B530076C43C /* BitcoinSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F33B572C2C990B530076C43C /* XCRemoteSwiftPackageReference "bitcoin-ecc" */;
+			productName = BitcoinSwift;
+		};
+		F37036612C8FFFF900CC4A76 /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F37036602C8FFFF900CC4A76 /* XCRemoteSwiftPackageReference "wallet-core" */;
+			productName = SwiftProtobuf;
+		};
+		F37036632C8FFFF900CC4A76 /* WalletCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F37036602C8FFFF900CC4A76 /* XCRemoteSwiftPackageReference "wallet-core" */;
+			productName = WalletCore;
+		};
+		F37036712C93EBC800CC4A76 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F370366A2C93E8A900CC4A76 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F32D9F542C80F8FD00CD5962 /* Project object */;
+}
