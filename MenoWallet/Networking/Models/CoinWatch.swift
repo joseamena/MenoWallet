@@ -61,7 +61,7 @@ struct HistoryResponse: Decodable {
     let history: [History]
     
     struct History: Decodable {
-        let date: Date
+        let date: Int64
         let rate: Double
         let volume: Int
         let cap: Int

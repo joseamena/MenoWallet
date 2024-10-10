@@ -44,21 +44,12 @@ extension AssetsAPI: DependencyKey {
             }
             
             return assets
-//            return [
-//                CryptoAsset(
-//                    iconUrl: coin.png32,
-//                    name: coin.name,
-//                    symbol: coin.symbol,
-//                    balance: 0,
-//                    price: coin.rate
-//                ),
-//            ]
         },
         getAssetHistory: { code, start, end in
             let dataHistory = try await coinService.fetchCoinHistory(code, start, end)
             return dataHistory.history.map {
                 CoinHistoryDataPoint(
-                    date: $0.date,
+                    date: Date.init(timeIntervalSince1970: TimeInterval($0.date / 1000)),
                     rate: $0.rate,
                     volume: $0.volume,
                     cap: $0.cap

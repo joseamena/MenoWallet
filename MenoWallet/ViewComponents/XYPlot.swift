@@ -48,24 +48,25 @@ struct XYPlot: View {
     var body: some View {
         Chart(dataPoints) {
             LineMark(
-                x: .value("Hour", $0.date, unit: .day),
+                x: .value("Date", $0.date),
                 y: .value("Amount", $0.price)
             )
-//            .symbol(.)
+//            .symbol(.circle)
             .interpolationMethod(.catmullRom)
             
-//            AreaMark(
-//                x: .value("Hour", $0.date, unit: .hour),
-//                yStart: .value("Amount", minMaxY.0),
-//                yEnd: .value("Amound End", $0.price)
-//            )
-//            .interpolationMethod(.catmullRom)
-//            .foregroundStyle(areaBackground)
+            AreaMark(
+                x: .value("Date", $0.date),
+                yStart: .value("Amount", minMaxY.0),
+                yEnd: .value("Amound End", $0.price)
+            )
+            .interpolationMethod(.catmullRom)
+            .foregroundStyle(areaBackground)
         }
 //        .chartXAxis {
 //            AxisMarks(values: .stride(by: .month, count: 1)) { _ in
 //                AxisValueLabel(format: .dateTime.day(), centered: true)
 //            }
+//            AxisMarks()
 //        }
         .chartYScale(domain: [minMaxY.0, minMaxY.1])
     }

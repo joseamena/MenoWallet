@@ -59,7 +59,7 @@ extension CoinWatchTarget: NetworkTarget {
     
     var headers: [String : String]? {
         [
-            :
+            "x-api-key": "62d2d790-e927-4ba6-9ace-5fca90ea4f8b"
         ]
     }
     

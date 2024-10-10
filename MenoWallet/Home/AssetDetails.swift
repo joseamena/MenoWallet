@@ -19,7 +19,7 @@ struct AssetDetailsReducer {
     struct State {
         var sendReceive: SendReceiveCryptoFeature.State = .init()
         let code: String
-        var historyWindow: Calendar.Component = .day
+        var historyWindow: Calendar.Component = .month
         var historyData: [AssetPriceDataHistoryPoint] = []
         var balance: Decimal = 0
         var currentPrice: Decimal?
