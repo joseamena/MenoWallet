@@ -30,24 +30,44 @@ struct WalletService {
         return wallet
     }()
     
-    var createNewWallet: (String) -> ([String], Data)
+    var generateMnemonicPhrase: (String) -> ([String], Data)
+    var importWallet: (String, String) throws -> ()
+    var saveWallet: (Data, String)throws -> ()
     var getAddressForCoin: (CoinType) -> String?
     var getPrivateKey: () -> Data?
     var getPassphrase: () -> String?
+   
     
     enum CoinType {
         case bitcoin
     }
+    
+    
 }
 
 extension WalletService: DependencyKey {
     static var liveValue = WalletService(
-        createNewWallet: { passphrase in
+        generateMnemonicPhrase: { passphrase in
             var bytes = [UInt8](repeating: 0, count: 32)
             _ = SecRandomCopyBytes(kSecRandomDefault, bytes.count, &bytes)
             let wallet = HDWallet(entropy: bytes.data, passphrase: passphrase)
             
             return (wallet?.mnemonic.components(separatedBy: " ") ?? [], bytes.data)
+        },
+        importWallet: { mnemonic, passphrase in
+            guard let wallet = HDWallet(mnemonic: mnemonic, passphrase: passphrase) else {
+                throw AppError.cryptoError(.unknown)
+            }
+            keychain.saveDataValueForKey(wallet.entropy, .privateKey)
+            if !passphrase.isEmpty {
+                keychain.saveStringValueForKey(passphrase, .walletPassphrase)
+            }
+        },
+        saveWallet: { entropy, passphrase in
+            keychain.saveDataValueForKey(entropy, .privateKey)
+            if !passphrase.isEmpty {
+                keychain.saveStringValueForKey(passphrase, .walletPassphrase)
+            }
         },
         getAddressForCoin: { coinType in
             switch configuration.environment.bitcoinNetwork {

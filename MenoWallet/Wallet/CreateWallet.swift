@@ -12,7 +12,6 @@ import SwiftUI
 //@Reducer
 struct CreateWalletFeature: Reducer {
     
-    @Dependency(\.keychain) private var keychain
     @Dependency(\.walletService) private var walletService
     
     @ObservableState
@@ -39,7 +38,7 @@ struct CreateWalletFeature: Reducer {
                 return .none
             case .onGenerateMnemonicPhraseTapped:
                 return .run { [passphrase = state.passphrase] send in
-                    let (words, data) = walletService.createNewWallet(passphrase)
+                    let (words, data) = walletService.generateMnemonicPhrase(passphrase)
                     await send(.onMnemonicGenerated(words: words, data: data))
                 }
             case .onMnemonicGenerated(let words, let data):
@@ -52,12 +51,9 @@ struct CreateWalletFeature: Reducer {
                 guard let privateKeyData = state.privateKeyData else {
                     return .none
                 }
-                keychain.saveDataValueForKey(privateKeyData, .privateKey)
-                
-                if !state.passphrase.isEmpty {
-                    keychain.saveStringValueForKey(state.passphrase, .walletPassphrase)
+                return .run { [state] _ in
+                    try walletService.saveWallet(privateKeyData, state.passphrase)
                 }
-                return .none
             }
         }
     }
@@ -100,7 +96,6 @@ struct CreateWalletView: View {
                 .typography(.body)
             
             Spacer()
-            
             continueButton
         }
     }

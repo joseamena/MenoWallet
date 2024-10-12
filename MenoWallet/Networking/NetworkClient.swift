@@ -34,19 +34,19 @@ extension NetworkClient {
         }
 
         guard connectivity else {
-            throw AppError.notConnectedToInternet
+            throw AppError.networkError(.notConnectedToInternet)
         }
         guard let request = target.urlRequest else {
-            throw AppError.requestCreationFailed
+            throw AppError.networkError(.requestCreationFailed)
         }
 
         let (data, response) = try await session.data(for: request)
 
         guard let httpResponse = response as? HTTPURLResponse else {
-            throw AppError.unknown
+            throw AppError.networkError(.requestCreationFailed)
         }
         guard 200 ..< 300 ~= httpResponse.statusCode else {
-            throw AppError.httpError(httpResponse.statusCode)
+            throw AppError.networkError(.httpError(httpResponse.statusCode))
         }
         do {
             let decoded: T = try decode(from: data)
@@ -58,7 +58,7 @@ extension NetworkClient {
             }
             return decoded
         } catch {
-            throw AppError.decodingError(error as? DecodingError)
+            throw AppError.networkError(.decodingError(error as? DecodingError)) 
         }
     }
 }

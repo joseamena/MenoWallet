@@ -13,6 +13,7 @@ import SwiftUI
 struct ImportWalletFeature {
     
     @Dependency(\.dismiss) private var dismiss
+    @Dependency(\.walletService) private var walletService
     
     @ObservableState
     struct State: Equatable {
@@ -34,7 +35,9 @@ struct ImportWalletFeature {
             case .onAppear:
                 return .none
             case .onContinueTapped:
-                return .none
+                return .run { [state] send in
+                    try walletService.importWallet(state.mnemonicPhrase, state.passphrase)
+                }
             case .onCancelTapped:
                 return .run { _ in await dismiss() }
             case .binding:
@@ -76,6 +79,7 @@ struct ImportWalletView: View {
     private var phraseInput: some View {
         VStack {
             TextEditor(text: $store.mnemonicPhrase)
+                .autocapitalization(.none)
                 .frame(height: 200)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
@@ -95,6 +99,7 @@ struct ImportWalletView: View {
     
     private var passPhraseInput: some View {
         SecureField("Enter passphrase (optional)", text: $store.passphrase)
+            .autocapitalization(.none)
             .padding()
             .background(Color.white)
             .cornerRadius(10)
