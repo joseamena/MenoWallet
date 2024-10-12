@@ -26,6 +26,24 @@ struct PrimaryButton: View {
     }
 }
 
+struct SecondaryButton: View {
+    let action: () -> ()
+    let text: String
+    
+    var body: some View {
+        Button(action: action, label: {
+            Text(text)
+                .padding()
+                .foregroundStyle(Color.Theme.background)
+                .typography(.body)
+                .frame(height: Dimensions.xxl.rawValue)
+                .frame(maxWidth: .infinity)
+                .background(Color.Theme.secondary)
+                .cornerRadius(Dimensions.xxl.rawValue / 2)
+        })
+    }
+}
+
 #Preview {
     PrimaryButton(action: { }, text: "Teto")
 }

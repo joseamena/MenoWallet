@@ -57,30 +57,6 @@ struct ContentView: View {
     let bitcoinClient = BitcoinClient.shared
 
     var body: some View {
-//        VStack {
-//            Image(systemName: "globe")
-//                .imageScale(.large)
-//                .foregroundStyle(.tint)
-//            Text("Hello, world!")
-//        }
-//        .padding()
-//        .task {
-//            let target = BitcoinTarget()
-//            let wallet = BitcoinWallet.create()
-//            do {
-//                let info = try await bitcoinClient.buildRequest(target: target, type: BTCBlockchainInfo.self)
-//                print(info)
-//            } catch {
-//                print(error)
-//            }
-//        }
-//        HomeView(
-//            store: .init(
-//                initialState: HomeReducer.State(),
-//                reducer: { HomeReducer() }
-//            )
-//        )
-        
         Group {
             if let destination = store.destination {
                 switch destination {
