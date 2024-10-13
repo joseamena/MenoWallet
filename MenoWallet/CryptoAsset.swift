@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CryptoAsset: Identifiable {
+struct CryptoAsset: Identifiable, Equatable {
     let iconUrl: String
     let name: String
     let code: String
@@ -18,7 +18,7 @@ struct CryptoAsset: Identifiable {
     }
 }
 
-struct CoinHistoryDataPoint {
+struct CoinHistoryDataPoint: Equatable {
     let date: Date
     let rate: Double
     let volume: Int

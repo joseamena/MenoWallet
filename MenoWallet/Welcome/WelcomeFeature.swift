@@ -19,7 +19,7 @@ struct WelcomeFeature {
     }
     
     @ObservableState
-    struct State {
+    struct State: Equatable {
         var path = StackState<Path.State>()
     }
     
@@ -37,7 +37,6 @@ struct WelcomeFeature {
 //            case .path(.element(id: _, action: .importWallet(.)))
 //            case .path(.element(id: _, action: .list(.onCreateWalletTapped)))
             case .path(let pathAction):
-                print("JM", pathAction)
                 return .none
 //            case .onCreateWalletTapped:
 //                state.path.append(.createWallet(CreateWalletFeature.State()))

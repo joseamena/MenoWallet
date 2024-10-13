@@ -16,13 +16,20 @@ struct AssetDetailsReducer {
     @Dependency(\.assetsAPI) private var assetsAPI
     
     @ObservableState
-    struct State {
-        var sendReceive: SendReceiveCryptoFeature.State = .init()
+    struct State: Equatable {
+        var sendReceive: SendReceiveCryptoFeature.State?
         let code: String
         var historyWindow: Calendar.Component = .month
         var historyData: [AssetPriceDataHistoryPoint] = []
         var balance: Decimal = 0
         var currentPrice: Decimal?
+        
+        init(code: String) {
+            self.code = code
+            if let coinType = WalletService.CoinType(rawValue: code) {
+                sendReceive = SendReceiveCryptoFeature.State(coinType: coinType)
+            }
+        }
     }
     
     @CasePathable
@@ -34,10 +41,6 @@ struct AssetDetailsReducer {
     }
     
     var body: some ReducerOf<Self> {
-        Scope(state: \.sendReceive, action: \.sendReceive) {
-            SendReceiveCryptoFeature()
-        }
-        
         Reduce { state, action in
             switch action {
             case .onAppear:
@@ -83,6 +86,9 @@ struct AssetDetailsReducer {
                 return .none
             }
         }
+        .ifLet(\.sendReceive, action: \.sendReceive) {
+            SendReceiveCryptoFeature()
+        }
     }
 }
 
@@ -102,9 +108,11 @@ struct AssetDetailsView: View {
     var content: some View {
         VStack {
             values
-            SendReceiveCryptoView(
-                store: store.scope(state: \.sendReceive, action: \.sendReceive)
-            )
+            if let store = store.scope(state: \.sendReceive, action: \.sendReceive) {
+                SendReceiveCryptoView(
+                    store: store
+                )
+            }
             XYPlot(dataPoints: store.historyData)
                 .frame(height: 300)
                 .frame(maxWidth: .infinity)

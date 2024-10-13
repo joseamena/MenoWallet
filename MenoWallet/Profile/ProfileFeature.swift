@@ -17,7 +17,7 @@ struct ProfileFeature {
     @Dependency(\.continuousClock) var clock
     
     @ObservableState
-    struct State {
+    struct State: Equatable {
         var mnemonicPhrase: String?
         var passphrase: String?
         var hideMnemonic = true

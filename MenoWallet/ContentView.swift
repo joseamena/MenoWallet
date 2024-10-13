@@ -14,18 +14,20 @@ struct ContentFeature {
     @Dependency(\.keychain) private var keychain
     
     @ObservableState
-    struct State {
-        var destination: Destination? = nil
+    struct State: Equatable {
+        @Presents var destination: Destination.State?
     }
     
+    @Reducer(state: .equatable)
     enum Destination {
-        case home
-        case welcome
+        case home(HomeReducer)
+        case welcome(WelcomeFeature)
     }
     
     enum Action {
         case onAppear
-        case onLoaded(Destination?)
+        case onPrivateKeyAvailableFetched(Bool)
+        case destination(PresentationAction<Destination.Action>)
     }
     
     var body: some ReducerOf<Self> {
@@ -34,22 +36,27 @@ struct ContentFeature {
             case .onAppear:
                 return .run { send in
                     if keychain.hasValueForKey(.privateKey) {
-                        await send(.onLoaded(.home))
+                        await send(.onPrivateKeyAvailableFetched(true))
                     } else {
-                        await send(.onLoaded(.welcome))
+                        await send(.onPrivateKeyAvailableFetched(false))
                     }
                 }
-            case .onLoaded(let destination):
-                state.destination = destination
+            case .onPrivateKeyAvailableFetched(let hasPrivateKey):
+                if hasPrivateKey {
+                    state.destination = .home(.init())
+                } else {
+                    state.destination = .welcome(.init())
+                }
+                return .none
+            case .destination(let action):
                 return .none
             }
         }
+        .ifLet(\.$destination, action: \.destination)
     }
 }
 
 struct ContentView: View {
-//    let bitcoinService = BitcoinService()
-    
     @Bindable var store: StoreOf<ContentFeature>
     
     @SwiftUI.Environment(\.colorScheme) var colorScheme
@@ -57,31 +64,45 @@ struct ContentView: View {
     let bitcoinClient = BitcoinClient.shared
 
     var body: some View {
-        Group {
-            if let destination = store.destination {
-                switch destination {
-                case .home:
-                    HomeView(
-                        store: .init(
-                            initialState: HomeReducer.State(),
-                            reducer: { HomeReducer() }
-                        )
+//        NavigationStack {
+            Text("MenoWallet")
+                .fullScreenCover(
+                    item: $store.scope(
+                        state: \.destination?.home,
+                        action: \.destination.home
                     )
-                case .welcome:
-                    WelcomeView(
-                        store: .init(
-                            initialState: WelcomeFeature.State(),
-                            reducer: { WelcomeFeature() }
-                        )
-                    )
+                ) { store in
+                    HomeView(store: store)
                 }
-            } else {
-               
-            }
-        }
+                .fullScreenCover(
+                    item: $store.scope(
+                        state: \.destination?.welcome,
+                        action: \.destination.welcome
+                    )
+                ) { store in
+                    WelcomeView(store: store)
+                }
+//                .navigationDestination(
+//                    item: $store.scope(
+//                        state: \.destination?.home,
+//                        action: \.destination.home
+//                    )
+//                ) { store in
+//                    HomeView(store: store)
+//                }
+//                .navigationDestination(
+//                    item: $store.scope(
+//                        state: \.destination?.welcome,
+//                        action: \.destination.welcome
+//                    )
+//                ) { store in
+//                    WelcomeView(store: store)
+//                }
+//        }
         .task {
             await store.send(.onAppear).finish()
         }
+        
     }
 }
 

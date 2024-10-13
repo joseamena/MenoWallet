@@ -19,7 +19,7 @@ struct Configuration {
 }
 
 extension Configuration: DependencyKey {
-    static var liveValue = Configuration(environment: TestEnvironment())
+    static var liveValue = Configuration(environment: Production())
 }
 
 extension DependencyValues {

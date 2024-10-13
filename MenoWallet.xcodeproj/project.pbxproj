@@ -45,6 +45,7 @@
 		F33B57362C99EF9C0076C43C /* CoinWatchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B57352C99EF9C0076C43C /* CoinWatchTarget.swift */; };
 		F33B57382C99F35B0076C43C /* CoinsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B57372C99F35B0076C43C /* CoinsService.swift */; };
 		F33B573A2C99F4C10076C43C /* CoinWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B57392C99F4C10076C43C /* CoinWatch.swift */; };
+		F34DBC7A2CBC3AE100D3E351 /* LoadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DBC792CBC3AE000D3E351 /* LoadStatus.swift */; };
 		F37036622C8FFFF900CC4A76 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = F37036612C8FFFF900CC4A76 /* SwiftProtobuf */; };
 		F37036642C8FFFF900CC4A76 /* WalletCore in Frameworks */ = {isa = PBXBuildFile; productRef = F37036632C8FFFF900CC4A76 /* WalletCore */; };
 		F37036662C90003C00CC4A76 /* BitcoinWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37036652C90003C00CC4A76 /* BitcoinWallet.swift */; };
@@ -120,6 +121,7 @@
 		F33B57352C99EF9C0076C43C /* CoinWatchTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinWatchTarget.swift; sourceTree = "<group>"; };
 		F33B57372C99F35B0076C43C /* CoinsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsService.swift; sourceTree = "<group>"; };
 		F33B57392C99F4C10076C43C /* CoinWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinWatch.swift; sourceTree = "<group>"; };
+		F34DBC792CBC3AE000D3E351 /* LoadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadStatus.swift; sourceTree = "<group>"; };
 		F37036652C90003C00CC4A76 /* BitcoinWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinWallet.swift; sourceTree = "<group>"; };
 		F37036672C9000B900CC4A76 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		F370366E2C93EA1900CC4A76 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		F32D9F5E2C80F8FD00CD5962 /* MenoWallet */ = {
 			isa = PBXGroup;
 			children = (
+				F34DBC782CBC3ACF00D3E351 /* Models */,
 				F33B570C2C94DF560076C43C /* KeychainItemAccessibility.swift */,
 				F33B570B2C94DF560076C43C /* KeychainWrapper.swift */,
 				F37036852C94CD2F00CC4A76 /* CryptoAsset.swift */,
@@ -291,6 +294,14 @@
 				F33B57352C99EF9C0076C43C /* CoinWatchTarget.swift */,
 			);
 			path = Targets;
+			sourceTree = "<group>";
+		};
+		F34DBC782CBC3ACF00D3E351 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F34DBC792CBC3AE000D3E351 /* LoadStatus.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F370366D2C93E96B00CC4A76 /* Home */ = {
@@ -512,6 +523,7 @@
 				F37036842C94CCA700CC4A76 /* AssetsAPI.swift in Sources */,
 				F37036662C90003C00CC4A76 /* BitcoinWallet.swift in Sources */,
 				F304F8232CAE51780003E815 /* ProfileFeature.swift in Sources */,
+				F34DBC7A2CBC3AE100D3E351 /* LoadStatus.swift in Sources */,
 				F33B571D2C98F9CD0076C43C /* SendCrypto.swift in Sources */,
 				F33B57152C94F3C30076C43C /* ImportWallet.swift in Sources */,
 				F33B570A2C94DC8D0076C43C /* KeychainClientAPI.swift in Sources */,

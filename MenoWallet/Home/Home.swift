@@ -9,24 +9,23 @@ import Foundation
 import ComposableArchitecture
 import SwiftUI
 
-
 struct HomeReducer: Reducer {
-    
+
     @Dependency(\.assetsAPI) private var assetsAPI
-    
+
     @ObservableState
-    struct State {
-        var sendReceive: SendReceiveCryptoFeature.State = .init()
+    struct State: Equatable {
         var assets: [CryptoAsset] = []
         var path = StackState<AssetDetailsReducer.State>()
+        var loadStatus = LoadStatus.loading
         @Presents var destination: Destination.State?
     }
 
-    @Reducer
+    @Reducer(state: .equatable)
     enum Destination {
         case profile(ProfileFeature)
     }
-    
+
     @CasePathable
     enum Action {
         case onAppear
@@ -35,20 +34,23 @@ struct HomeReducer: Reducer {
         case path(StackAction<AssetDetailsReducer.State, AssetDetailsReducer.Action>)
         case onProfileButtonTapped
         case destination(PresentationAction<Destination.Action>)
+        case onError(Error)
     }
-    
+
     var body: some ReducerOf<Self> {
-//        Scope(state: \.sendReceive, action: \.sendReceive) {
-//            SendReceiveCryptoFeature()
-//        }
         Reduce { state, action in
             switch action {
             case .onAppear:
                 return .run { send in
-                    try await send(.onAssetsLoaded(assetsAPI.getAssets()))
+                    do {
+                        try await send(.onAssetsLoaded(assetsAPI.getAssets()))
+                    } catch {
+                        await send(.onError(error))
+                    }
                 }
             case .onAssetsLoaded(let assets):
                 state.assets = assets
+                state.loadStatus = .none
                 return .none
             case .path:
                 return .none
@@ -58,6 +60,13 @@ struct HomeReducer: Reducer {
                 state.destination = .profile(.init())
                 return .none
             case .destination:
+                return .none
+            case .onError(let error):
+                if let localizedError = error as? LocalizedError {
+                    state.loadStatus = .error(localizedError)
+                } else {
+                    state.loadStatus = .error(AppError.unknown)
+                }
                 return .none
             }
         }
@@ -80,7 +89,7 @@ struct HomeView: View {
                     .ignoresSafeArea()
                 content
             }
-            .navigationTitle("Asset")
+            .navigationTitle("Assets")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: { store.send(.onProfileButtonTapped) }) {
@@ -99,15 +108,22 @@ struct HomeView: View {
     
     private var content: some View {
         VStack {
-//            SendReceiveCryptoView(
-//                store: store.scope(state: \.sendReceive, action: \.sendReceive)
-//            )
-//            .padding()
-            assets
-//            Spacer()
+            loadingView
         }
         .task {
             await store.send(.onAppear).finish()
+        }
+    }
+    
+    @ViewBuilder
+    private var loadingView: some View {
+        switch store.loadStatus {
+        case .loading:
+            ProgressView()
+        case .none:
+            assets
+        case .error(let error):
+            Text(error.localizedDescription)
         }
     }
 

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Charts
 
-struct AssetPriceDataHistoryPoint: Identifiable {
+struct AssetPriceDataHistoryPoint: Identifiable, Equatable {
     
     let date: Date
     let price: Decimal

@@ -16,8 +16,10 @@ struct ReceiveCryptoFeature {
     @Dependency(\.walletService) private var walletService
     
     @ObservableState
-    struct State {
+    struct State: Equatable {
+        let coinType: WalletService.CoinType
         var address: String?
+        var loadStatus: LoadStatus = .loading
     }
     
     enum Action {
@@ -30,8 +32,8 @@ struct ReceiveCryptoFeature {
         Reduce { state, action in
             switch action {
             case .onAppear:
-                return .run { send in
-                    let address = walletService.getAddressForCoin(.bitcoin)
+                return .run { [state] send in
+                    let address = walletService.getAddressForCoin(state.coinType)
                     await send(.addressGenerated(address))
                 }
             case .addressGenerated(let address):
@@ -61,8 +63,10 @@ struct ReceiveCryptoView: View {
     private var content: some View {
         VStack {
             qrCode
-            store.address.map(Text.init)
-            PrimaryButton(action: { store.send(.copyToClipboard) }, text: "Copy to clipboard")
+            PrimaryButton(
+                action: { store.send(.copyToClipboard) },
+                text: "Copy to clipboard"
+            )
         }
         .task {
             await store.send(.onAppear).finish()
@@ -71,11 +75,16 @@ struct ReceiveCryptoView: View {
     
     @ViewBuilder
     private var qrCode: some View {
-        if let address = store.address, let uiImage = generateQRCode(from: address){
-            Image(uiImage: uiImage)
-                .resizable()
-                .interpolation(.none)
-                .aspectRatio(1, contentMode: .fit)
+        
+        if let address = store.address {
+            if let uiImage = generateQRCode(from: address) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .interpolation(.none)
+                    .aspectRatio(1, contentMode: .fit)
+            }
+            Text(address.withZeroWidthSpaces)
+                .typography(.body)
         }
     }
     
@@ -95,5 +104,11 @@ struct ReceiveCryptoView: View {
         }
 
         return nil
+    }
+}
+
+extension String {
+    var withZeroWidthSpaces: String {
+        map({ String($0) }).joined(separator: "\u{200B}")
     }
 }

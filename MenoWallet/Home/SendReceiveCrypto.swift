@@ -13,11 +13,12 @@ import SwiftUI
 struct SendReceiveCryptoFeature {
     
     @ObservableState
-    struct State {
+    struct State: Equatable {
+        let coinType: WalletService.CoinType
         @Presents var destination: Destination.State?
     }
     
-    @Reducer
+    @Reducer(state: .equatable)
     enum Destination {
         case send(SendCryptoFeature)
         case receive(ReceiveCryptoFeature)
@@ -40,7 +41,7 @@ struct SendReceiveCryptoFeature {
                 state.destination = .send(.init())
                 return .none
             case .onReceivePressed:
-                state.destination = .receive(.init())
+                state.destination = .receive(.init(coinType: state.coinType))
                 return .none
             case .destination:
                 return .none
@@ -117,7 +118,7 @@ struct SendReceiveCryptoView: View {
 #Preview {
     SendReceiveCryptoView(
         store: .init(
-            initialState: SendReceiveCryptoFeature.State(),
+            initialState: SendReceiveCryptoFeature.State(coinType: .bitcoin),
             reducer:  {
                 SendReceiveCryptoFeature()
             }

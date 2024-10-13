@@ -15,7 +15,7 @@ struct SendCryptoFeature {
     @Dependency(\.bitcoinService) private var bitcoinService
     
     @ObservableState
-    struct State {
+    struct State: Equatable {
         var address: String = ""
         var balance: Decimal = 0
     }

@@ -51,3 +51,21 @@ class TestEnvironment: Environment {
     var bitcoinNetwork: S256Point.Network  = .regTest
 }
 
+class Production: Environment {
+    var url: String = "http://192.168.86.210:5000"
+    
+    var version: String = "0.1"
+    
+    var clientId: String = ""
+    
+    var clientSecret: String = ""
+    
+//    var deviceId: String
+    
+    var headers: [String : String]? = [
+        "Content-Type": "application/json"
+    ]
+    
+    var bitcoinNetwork: S256Point.Network  = .mainNet
+}
+

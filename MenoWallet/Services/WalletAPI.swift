@@ -38,11 +38,11 @@ struct WalletService {
     var getPassphrase: () -> String?
    
     
-    enum CoinType {
-        case bitcoin
+    enum CoinType: String {
+        case bitcoin = "BTC"
+        case litecoin = "LTC"
+        case ethereum = "ETH"
     }
-    
-    
 }
 
 extension WalletService: DependencyKey {
@@ -70,22 +70,29 @@ extension WalletService: DependencyKey {
             }
         },
         getAddressForCoin: { coinType in
-            switch configuration.environment.bitcoinNetwork {
-            case .mainNet:
-                return wallet?.getAddressForCoin(coin: .bitcoin)
-            case .testNet:
-                return wallet?.getAddressDerivation(coin: .bitcoin, derivation: .bitcoinTestnet)
-            case .regTest:
-                guard let wallet = wallet else {
-                    return nil
+            switch coinType {
+            case .bitcoin:
+                switch configuration.environment.bitcoinNetwork {
+                case .mainNet:
+                    return wallet?.getAddressForCoin(coin: .bitcoin)
+                case .testNet:
+                    return wallet?.getAddressDerivation(coin: .bitcoin, derivation: .bitcoinTestnet)
+                case .regTest:
+                    guard let wallet = wallet else {
+                        return nil
+                    }
+                    if keychain.hasValueForKey(.bitcoinAddresses) {
+                        return keychain.getArrayOfStringForKey(.bitcoinAddresses).first
+                    }
+                    let bytes = [UInt8](wallet.entropy)
+                    let num = BInt(magnitude: bytes)
+                    let privateKey = BitcoinSwift.PrivateKey(secret: num)
+                    return privateKey.getAddress(network: .regTest)
                 }
-                if keychain.hasValueForKey(.bitcoinAddresses) {
-                    return keychain.getArrayOfStringForKey(.bitcoinAddresses).first
-                }
-                let bytes = [UInt8](wallet.entropy)
-                let num = BInt(magnitude: bytes)
-                let privateKey = BitcoinSwift.PrivateKey(secret: num)
-                return privateKey.getAddress(network: .regTest)
+            case .litecoin:
+                return wallet?.getAddressForCoin(coin: .litecoin)
+            case .ethereum:
+                return wallet?.getAddressForCoin(coin: .ethereum)
             }
         },
         getPrivateKey: {

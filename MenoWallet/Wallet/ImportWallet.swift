@@ -11,23 +11,23 @@ import SwiftUI
 
 @Reducer
 struct ImportWalletFeature {
-    
+
     @Dependency(\.dismiss) private var dismiss
     @Dependency(\.walletService) private var walletService
-    
+
     @ObservableState
     struct State: Equatable {
         var mnemonicPhrase: String = ""
         var passphrase: String = ""
     }
-    
+
     enum Action: BindableAction {
         case binding(BindingAction<State>)
         case onAppear
         case onContinueTapped
         case onCancelTapped
     }
-    
+
     var body: some ReducerOf<Self> {
         BindingReducer()
         Reduce { state, action in
